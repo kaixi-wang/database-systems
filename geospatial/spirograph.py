@@ -1,6 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+"""
+Draws a spirograph over a map that is centered at the given latitude and longitude
+"""
 #x(t) = (R+r)*cos((r/R)*t) - a*cos((1+r/R)*t)
 #y(t) = (R+r)*sin((r/R)*t) - a*sin((1+r/R)*t)
 
@@ -45,21 +49,32 @@ def getlat(center_lat,x):
 def getlng(center_lng,y):
     return [val/3600+center_lng for val in y]
 
-#sgm123=34.021190, -118.289067
-center_lat=-118.289067
-center_lng=34.021190
+def main():
+    import sys
+    import os
+    if len(sys.argv)<3:
+        print("Incorrect number of arguments. Please call as \n python -m spirograph.py <lat> <lon> <optional: output_dir>" )
+    else:
+        center_lat=float(sys.argv[1])
+        center_lng=float(sys.argv[2])
 
-#test print
-lats=getlat(center_lat,x)
-lngs=getlng(center_lng,y)
-plt.plot(lats,lngs)
-plt.show()
+        #test print
+        lats=getlat(center_lat,x)
+        lngs=getlng(center_lng,y)
+        plt.plot(lats,lngs)
+        plt.show()
+
+        #print to file
+        coordinates=getLatLng(center_lat,center_lng,x,y)
+        fpath='output_filepath/'
+        if len(sys.argv)>3:
+            fpath=sys.argv[3]
+        output_filename=os.path.join(fpath, 'spiro_coordinates.txt')
+        with open(output_filename, 'a') as f:
+            print('Writing coordinates to {}'.format(output_filename))
+            for c in coordinates:
+                f.write(c[0])
 
 
-#print to file
-coordinates=getLatLng(center_lat,center_lng,x,y)
-fpath='output_filepath/'
-with open(fpath+'spiro_coordinates_small.txt', 'a') as f:
-    for c in coordinates:
-        f.write(c[0])
-
+if __name__ == "__main__":
+    main()
