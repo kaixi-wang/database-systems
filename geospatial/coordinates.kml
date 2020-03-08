@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+<Document>
+<Style id="z1">
+  <IconStyle>
+    <Icon><href>http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png</href></Icon>
+  </IconStyle>
+</Style>
+<Style id="basicLineStyle">
+  <LineStyle>
+    <width>2</width>
+  </LineStyle>
+</Style>
+<Style id="polygonStyle">
+    <PolyStyle>
+    <color>#90D278F0</color>
+    <outline>0</outline>
+    </PolyStyle>
+  <LineStyle>
+  	<width>20</width>
+  </LineStyle>
+</Style>
+<!-- Placemarks -->
+<Placemark><name>Building</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.25747777777778,34.046275</coordinates></Point>
+</Placemark>
+<Placemark><name>WholeFoods</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.25790277777777,34.045880555555556</coordinates></Point>
+</Placemark>
+<Placemark><name>8thAndHope</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.25908611111112,34.04663333333333</coordinates></Point>
+</Placemark>
+<Placemark><name>XLouie</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.25675833333334,34.04723611111111</coordinates></Point>
+</Placemark>
+<Placemark><name>Taqueria</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.25604166666666,34.047016666666664</coordinates></Point>
+</Placemark>
+<Placemark><name>Bank</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.25561388888889,34.048455555555556</coordinates></Point>
+</Placemark>
+<Placemark><name>Starbucks</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.25530277777777,34.04884444444444</coordinates></Point>
+</Placemark>
+<Placemark><name>WilshireGrand</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.25620277777777,34.04787777777778</coordinates></Point>
+</Placemark>
+<Placemark><name>5thGrand</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.25391388888889,34.050261111111105</coordinates></Point>
+</Placemark>
+<!-- Lines to 3 Nearest Neighbors -->
+<Placemark>
+<styleUrl>#basicLineStyle</styleUrl>
+<LineString>
+            <coordinates>-118.25747777777778,34.046275 -118.25790277777777,34.045880555555556</coordinates>
+</LineString>
+</Placemark>
+<Placemark>
+<styleUrl>#basicLineStyle</styleUrl>
+<LineString>
+            <coordinates>-118.25747777777778,34.046275 -118.25604166666666,34.047016666666664</coordinates>
+</LineString>
+</Placemark>
+<Placemark>
+<styleUrl>#basicLineStyle</styleUrl>
+<LineString>
+            <coordinates>-118.25747777777778,34.046275 -118.25675833333334,34.04723611111111</coordinates>
+</LineString>
+</Placemark>
+<!-- Convex Hull  -->
+<Placemark>
+<styleUrl>#polygonStyle</styleUrl>
+<Polygon>
+	<outerBoundaryIs>
+		<LinearRing>
+			<coordinates>
+        -118.257902777778,34.0458805555556,0
+        -118.259086111111,34.0466333333333,0
+        -118.253913888889,34.0502611111111,0
+        -118.256041666667,34.0470166666667,0
+        -118.257902777778,34.0458805555556,0
+			</coordinates>
+		</LinearRing>
+	</outerBoundaryIs>
+</Polygon>
+</Placemark>
+</Document>
+</kml>
